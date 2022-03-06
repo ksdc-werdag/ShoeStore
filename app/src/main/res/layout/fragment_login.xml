@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" >
+    <data>
+        <variable
+            name="loginViewModel"
+            type="com.udacity.shoestore.views.LoginViewModel" />
+
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".models.LoginFragment">
+
+
+        <TextView
+            android:id="@+id/loginInstructions"
+            android:layout_width="325dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="@dimen/margin_wide"
+            android:fontFamily="sans-serif"
+            android:text="Please Enter your Details to Register an Account"
+            android:textAlignment="center"
+            android:textColor="@color/design_default_color_primary"
+            android:textSize="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/EmailAddressTextBox"
+            android:layout_width="257dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="@dimen/margin_wide"
+            android:hint="@{loginViewModel.helperTextEmail}"
+            android:ems="10"
+            android:fontFamily="sans-serif"
+            android:text="@={loginViewModel.editEmailContent}"
+            android:inputType="textEmailAddress"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/loginInstructions" />
+
+        <TextView
+            android:id="@+id/emailTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:fontFamily="sans-serif"
+            android:text="Email Address"
+            android:textColor="@color/design_default_color_primary"
+
+            app:layout_constraintEnd_toEndOf="@id/EmailAddressTextBox"
+            app:layout_constraintTop_toBottomOf="@+id/EmailAddressTextBox" />
+
+        <EditText
+            android:id="@+id/TextPasswordTextBox"
+            android:layout_width="253dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="@dimen/margin_wide"
+            android:ems="10"
+            android:fontFamily="sans-serif"
+            android:inputType="textPassword"
+            android:hint="@{loginViewModel.helperTextPassword}"
+            android:text="@={loginViewModel.editPasswordContent}"
+            app:layout_constraintEnd_toEndOf="@id/emailTitle"
+            app:layout_constraintTop_toBottomOf="@id/emailTitle" />
+
+        <TextView
+            android:id="@+id/passwordTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:fontFamily="sans-serif"
+            android:text="Password"
+            android:textColor="@color/design_default_color_primary"
+
+            app:layout_constraintEnd_toEndOf="@id/TextPasswordTextBox"
+            app:layout_constraintTop_toBottomOf="@id/TextPasswordTextBox" />
+
+        <Button
+            android:id="@+id/okButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/design_default_color_primary"
+            android:fontFamily="sans-serif"
+            android:text="Login"
+            android:onClick="@{()->loginViewModel.onLogin()}"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="@dimen/box_text_size"
+            app:layout_constraintEnd_toEndOf="@id/passwordTitle"
+            app:layout_constraintTop_toTopOf="@id/createButton" />
+
+        <Button
+            android:id="@+id/createButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="68dp"
+            android:backgroundTint="@color/design_default_color_primary"
+            android:fontFamily="sans-serif"
+            android:onClick="@{()->loginViewModel.onLogin()}"
+            android:text="Create"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="@dimen/box_text_size"
+            app:layout_constraintStart_toStartOf="@id/TextPasswordTextBox"
+            app:layout_constraintTop_toBottomOf="@id/passwordTitle"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

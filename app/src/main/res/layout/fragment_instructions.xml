@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="instructionsViewModel"
+            type="com.udacity.shoestore.views.InstructionsViewModel" />
+
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".models.InstructionsFragment">
+
+        <TextView
+            android:id="@+id/details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_wide"
+            android:fontFamily="sans-serif"
+            android:text="How to use this application"
+            android:textAlignment="center"
+            android:textColor="@color/design_default_color_primary"
+            android:textSize="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/loginInstructions"
+            android:layout_width="325dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="@dimen/margin_wide"
+            android:fontFamily="sans-serif"
+            android:text="To add new shoes please select the Add New Button. To view your list of shoes please select the View Shoes button"
+            android:textAlignment="center"
+            android:textColor="@color/design_default_color_primary"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/details"
+            app:layout_constraintVertical_bias="0.6"/>
+
+        <Button
+            android:id="@+id/viewButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/design_default_color_primary"
+            android:fontFamily="sans-serif"
+            android:onClick="@{()->instructionsViewModel.onViewShoes()}"
+            android:text="View Our Wonderful List of Shoes"
+            android:textColor="@color/cardview_light_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loginInstructions"
+            app:layout_constraintVertical_bias="0.1"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
